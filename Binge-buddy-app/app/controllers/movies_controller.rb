@@ -13,11 +13,11 @@ require 'uri'
         @searching = params[:search]
       if current_user != nil
       #this is to get limit of 10 movies
-        @guidebox = HTTParty.get("http://api-public.guidebox.com/v2/movies?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}&limit=10")
+        @guidebox = HTTParty.get("https://api-public.guidebox.com/v2/movies?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}&limit=10")
           if @searching != nil
               @search = URI.encode(@searching)
       #this is get the searched movie results
-        @guidebox_movie = HTTParty.get("http://api-public.guidebox.com/v1.43/all/#{ENV['GUIDEBOXWRAPPER_API_KEY']}/search/movie/title/#{@search}/fuzzy/web")
+        @guidebox_movie = HTTParty.get("https://api-public.guidebox.com/v1.43/all/#{ENV['GUIDEBOXWRAPPER_API_KEY']}/search/movie/title/#{@search}/fuzzy/web")
         # render :json => @guidebox_movie
         @movieslist = @guidebox['results']
         @moviesearch = @guidebox_movie['results']
@@ -27,7 +27,7 @@ require 'uri'
       else
         @searching = params[:search]
         @search = URI.encode(@searching)
-        @guidebox_movie = HTTParty.get("http://api-public.guidebox.com/v1.43/all/#{ENV['GUIDEBOXWRAPPER_API_KEY']}/search/movie/title/#{@search}/fuzzy/web")
+        @guidebox_movie = HTTParty.get("https://api-public.guidebox.com/v1.43/all/#{ENV['GUIDEBOXWRAPPER_API_KEY']}/search/movie/title/#{@search}/fuzzy/web")
         @moviesearch = @guidebox_movie['results']
       end
     end
@@ -35,9 +35,9 @@ require 'uri'
     def one_result
       puts "CHECK ALLO ", params.inspect
       @movie_id = params[:movie_id]
-      @trailer= HTTParty.get("http://api-public.guidebox.com/v2/movies/#{@movie_id}?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}")
+      @trailer= HTTParty.get("https://api-public.guidebox.com/v2/movies/#{@movie_id}?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}")
 
-      puts "http://api-public.guidebox.com/v2/movies/#{@movie_id}?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}"
+      puts "https://api-public.guidebox.com/v2/movies/#{@movie_id}?api_key=#{ENV['GUIDEBOXWRAPPER_API_KEY']}"
 
       # render :json  => @trailer
       puts "TRAILER", @trailer
