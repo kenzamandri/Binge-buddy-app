@@ -33,7 +33,7 @@
     <div class="pade col s12">
       <div class="hexagon hexagon2">
         <div class="hexagon-in1">
-            <%@image = @trailer['poster_240x342']%>
+            <%@image = @trailer['poster_240x342'].insert(4, 's')%>
             <img class= "hexagon-in5" src=<%= @image %> alt="">
         </div>
       </div>

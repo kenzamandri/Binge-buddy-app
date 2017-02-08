@@ -81,7 +81,9 @@
       <div class="honeycombs">
 
         <% @guidebox['results'].each do |movies|%>
-          <%@image = movies['poster_240x342']%>
+          <%@image = movies['poster_240x342'].insert(4, 's')%>
+          <% puts "IMAGE",  @image%>
+        
           <%@movie_id = movies['id']%>
           <%@title = movies['title']%>
           <div class="comb">

@@ -4,7 +4,7 @@
       <% puts "trying again ", results.inspect %>
       <div class="comb">
         <%@title = results['title']%>
-        <%@image = results['poster_240x342']%>
+        <%@image = results['poster_240x342'].insert(4, 's')%>
         <%@movie_id = results['id']%>
 
             <img src=<%= @image%>>
