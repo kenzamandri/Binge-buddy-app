@@ -22,4 +22,8 @@ test:
 
 production:
   <<: *default
-  database: db/binge-buddy-app-production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: ENV['DB2_NAME']
+  username: ENV['DB2_USERNAME']
+  password: ENV['DB2_PASSWORD']
