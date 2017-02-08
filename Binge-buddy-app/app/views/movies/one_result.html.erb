@@ -1,4 +1,5 @@
-
+<%puts "RAILS CURRENT ENV"%>
+<%puts Rails.env%>
 <%@movie_id = @trailer['id']%>
 
 <div class="mock-div5"></div>
@@ -115,9 +116,9 @@
         <div class="collapsible-body">
           <span>
             <%@trailer['trailers']['web'].each do |show|%>
-              <%@link = show['embed'].insert(4,'s')%>
+              <%@link2 = show['embed']%>
               <%puts "link", @link %>
-            <center>  <iframe src=<%= @link %> width="700px" height="370px"></iframe> </center>
+            <center>  <iframe src=<%= @link2 %> width="700px" height="370px"></iframe> </center>
 
             <%end%>
           </span>
