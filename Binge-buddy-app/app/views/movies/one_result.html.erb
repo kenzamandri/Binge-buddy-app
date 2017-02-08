@@ -115,7 +115,8 @@
         <div class="collapsible-body">
           <span>
             <%@trailer['trailers']['web'].each do |show|%>
-              <%@link = show['embed']%>
+              <%@link = show['embed'].insert(4,'s')%>
+              <%puts "link", @link %>
             <center>  <iframe src=<%= @link %> width="700px" height="370px"></iframe> </center>
 
             <%end%>
