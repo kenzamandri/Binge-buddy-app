@@ -1,0 +1,41 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  title: MyString
+  genre: MyString
+  time: 1
+  user_id: 1
+  release_year: 1
+  writers: MyString
+  directors: MyString
+  rottentomatoes: MyString
+  web_trailers: MyString
+  posters: MyString
+  metacritic_link: MyString
+  free_web_sources: MyString
+  thumbnails: MyString
+  banners: MyString
+  backgrounds: MyString
+  overview: MyString
+  purchase_web_sources: MyString
+  tv_everywhere_web_sources: MyString
+
+two:
+  title: MyString
+  genre: MyString
+  time: 1
+  user_id: 1
+  release_year: 1
+  writers: MyString
+  directors: MyString
+  rottentomatoes: MyString
+  web_trailers: MyString
+  posters: MyString
+  metacritic_link: MyString
+  free_web_sources: MyString
+  thumbnails: MyString
+  banners: MyString
+  backgrounds: MyString
+  overview: MyString
+  purchase_web_sources: MyString
+  tv_everywhere_web_sources: MyString

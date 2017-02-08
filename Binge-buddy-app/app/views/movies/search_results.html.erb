@@ -1,0 +1,56 @@
+<div class="honeycombs">
+  <% if @moviesearch != nil %>
+    <%@moviesearch.each do |results|%>
+      <% puts "trying again ", results.inspect %>
+      <div class="comb">
+        <%@title = results['title']%>
+        <%@image = results['poster_240x342']%>
+        <%@movie_id = results['id']%>
+
+            <img src=<%= @image%>>
+
+          <span>
+            <%= @title %><br>
+            <% if current_user != nil%>
+                <%= link_to "VIEW", {action: :one_result, movie_id: @movie_id, title: @title, user_id: current_user.id }, method: :post, class: "naving" %>
+            <%else%>
+                <a class=" sign"href="/users/sign_up"> Sign Up</a>
+            <%end %>
+          </span>
+      </div>
+    <%end%>
+  <%else%>
+      <p>No movie found by this title</p>
+<%end%>
+
+ </div>
+
+
+
+
+ <script type="text/javascript">
+   $(document).ready(function() {
+     $('.honeycombs').honeycombs({
+       combWidth: 250,
+       margin: 10
+     });
+   });
+ </script>
+<!--
+
+    <div class="comb">
+      <img src="/assets/movie2.jpg"/>
+        <span>Image Caption 1</span>
+    </div>
+    <div class="comb">
+      <img src="/assets/movie3.jpg"/>
+        <span>Image Caption 1</span>
+    </div>
+    <div class="comb">
+      <img src="/assets/movie4.jpg"/>
+        <span>Image Caption 1</span>
+    </div>
+    <div class="comb">
+      <img src="/assets/movie5.jpg"/>
+        <span>Image Caption 1</span>
+    </div> -->

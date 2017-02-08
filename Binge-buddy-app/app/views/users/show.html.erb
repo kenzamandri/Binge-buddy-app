@@ -1,0 +1,22 @@
+
+<div class="user-info-div">
+  <div class="newprofile container">
+    <div class="row">
+      <div class="col s6 offset-s3">
+        <center>
+            <h4>Name:</h4><%= @user.first_name%> <%= @user.last_name%>
+            <br><hr>
+
+
+            <h4>Email:</h4><%=@user.email%>
+            <br><hr>
+
+            <h4 id="avatar"><%= image_tag @user.avatar.url%></h4>
+            <hr>
+            <h4 id="coloredit"><%= link_to "Edit Profile", edit_user_registration_path %></h4>
+
+        </center>
+      </div>
+    </div>
+  </div>
+</div>

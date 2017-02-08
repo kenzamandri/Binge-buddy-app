@@ -1,0 +1,111 @@
+
+
+<div class="container">
+  <div class="row ">
+    <div class="col s12">
+      <center><h1 id="header">
+        <div id="binge">Binge</div>
+        <div id="buddy">B U D D Y</div>
+      </h1></center>
+    </div>
+  </div>
+
+<hr>
+  <div class="row size">
+    <div class="col s12">
+      <div class="col s4 ">
+          <div class="hexagon hexagon2">
+            <div class="hexagon-in1">
+              <div class="hexagon-in2">
+
+              </div>
+            </div>
+          </div>
+          <p class="style">You like movies, but constantly struggle to find where to watch them online?</p>
+      </div>
+
+      <div class="col s4">
+        <p class="style">Search or Browse through our library!</p>
+        <div class="hexagon hexagon3">
+          <div class="hexagon-in1">
+            <div class="hexagon-in3">
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col s4">
+        <div class="hexagon hexagon4">
+          <div class="hexagon-in1">
+            <div class="hexagon-in4">
+
+            </div>
+          </div>
+        </div>
+        <p class="style"> Make sure to save your favorite movies! Happy Binging!</p>
+      </div>
+  </div>
+</div>
+  <hr>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+  <div class="row size">
+
+    <div class="col s12 ">
+      <center><h4 class="homesearch"><i class="large material-icons spacing">search</i>Pick Your Movie: </h4>
+      <%= form_tag("/movies/search-results", method: "post") do |f| %>
+        <%= label_tag(:search, "Search for a movie:") %>
+        <%= text_field_tag(:search) %> <br>
+      <%= submit_tag "Submit", class: "btn waves-effect waves-light" %>
+      <% end %>
+    </center>
+    </div>
+  </div>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+  <div class="row">
+    <div class="col s12">
+      <div class="honeycombs">
+
+        <% @guidebox['results'].each do |movies|%>
+          <%@image = movies['poster_240x342']%>
+          <%@movie_id = movies['id']%>
+          <%@title = movies['title']%>
+          <div class="comb">
+            <img src=<%= @image%>>
+            <span><%= @title%><br>
+                <% if current_user != nil%>
+                    <%= link_to "view this movie", {controller: :movies, action: :one_result, movie_id: @movie_id, title: @title, user_id: current_user.id }, method: :post%>
+                <%else%>
+                    <!-- <a class=" sign"href="/users/sign_up"> Sign Up</a> -->
+                    <%= link_to "view this movie", {controller: :movies, action: :one_result, movie_id: @movie_id, title: @title}, method: :post%>
+                <%end %>
+            </span>
+          </div>
+        <%end%>
+      </div>
+
+    </div>
+  </div>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $('.honeycombs').honeycombs({
+        combWidth: 250,
+        margin: 10
+      });
+    });
+  </script>
+</div> <!-- end of container -->

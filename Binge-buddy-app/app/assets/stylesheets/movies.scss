@@ -1,0 +1,179 @@
+// Place all the styles related to the Movies controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.honeycombs{
+	position: relative;
+	overflow: hidden;
+	width: 100%;
+	text-align: center;
+}
+
+.honeycombs .inner_span{
+	display: block;
+	height: 100%;
+	width: 100%;
+	background-color: rgba(153,240,202, 0.9);
+	font-family: sans-serif;
+	color: #212c39;
+}
+.honeycombs .inner-text{
+	padding-top: 30%;
+	font-family: 'Raleway', sans-serif;
+	font-weight: bolder;
+	font-size: 20px;
+	text-align: center;
+	color: black;
+
+}
+
+.honeycombs .honeycombs-inner-wrapper{
+	display: inline-block;
+	overflow: hidden;
+	width: 700px;
+	position: relative;
+	height: 1200px;
+}
+
+.honeycombs .comb{
+	position: absolute;
+	display: inline-block;
+}
+
+.honeycombs .hex_l,
+.honeycombs .hex_r{
+	overflow: hidden;
+	position: absolute;
+	/* -webkit-backface-visibility: hidden; */
+}
+
+.honeycombs .hex_l{
+	visibility: hidden;
+	-moz-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+
+	transform: rotate(60deg);
+}
+
+.honeycombs .hex_r{
+	visibility: hidden;
+	-moz-transform: rotate(-120deg);
+	-ms-transform: rotate(-120deg);
+	-o-transform: rotate(-120deg);
+	-webkit-transform: rotate(-120deg);
+
+	transform: rotate(-120deg);
+}
+
+.honeycombs .hex_inner{
+	display: block;
+	visibility: visible;
+	-moz-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
+	-o-transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+
+	transform: rotate(60deg);
+
+	background-position: center;
+  	-webkit-background-size: cover;
+  	-moz-background-size: cover;
+  	-o-background-size: cover;
+  	background-size: cover;
+
+	cursor: pointer;
+
+}
+div.sizing{
+  position: absolute;
+  float: right;
+}
+div.results{
+  float: right;
+  img{
+    height: 200px;
+    width: 200px;
+  }
+}
+
+
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+	margin-top: -95px;
+  height: 100%;
+  width: 100%;
+  color: white;
+  background-color: rgba(0,0,0,0.6);
+
+  .flex-item {
+    text-align: center;
+
+    .top {
+      font-family: 'Raleway', serif;
+      font-weight: 100;
+      // font-style: italic;
+      font-size: 100px;
+    }
+  }
+}
+
+.mock-div5 {
+	background-color: black;
+	opacity: 1;
+	width: 100%;
+	z-index: 1000;
+	position: absolute;
+	top: 0;
+	left: 0;
+}
+
+video#myvideo {
+  position:absolute;
+  top: 70%;
+  left: 70%;
+  min-width: 100%;
+  min-height: 100%;
+  z-index: -100;
+  transform: translateX(-70%) translateY(-70%);
+}
+#heart{
+	i{
+		color: rgba(153,240,202, 0.8);
+	}
+	// padding-top: -20px;
+}
+#heart:hover{
+	i{
+		color: rgb(54, 193, 132);
+		text-shadow: 20px;
+	}}
+ul.collapsible{
+	font-family: 'Raleway', sans-serif;
+	font-weight: 100;
+	font-weight: bold;
+	font-size: 25px;
+	text-align: center;
+	li{
+		span{
+			font-size: 18px;
+			padding: 30px 0;
+		}
+	}
+}
+.pade{
+	    margin-bottom: -100px;
+}
+a.sign{
+	text-align: center;
+	font-size: 30px;
+	color: rgba(153,240,202, 0.8);
+}
+i.spacing{
+	padding-right: 40px;
+}

@@ -1,0 +1,15 @@
+<div class="searcher container">
+  <div class="row">
+    <div class="col s12">
+
+        <center><h4 class="homesearch"><i class="large material-icons spacing">search</i>Pick Your Movie: </h4>
+
+        <%= form_tag("/movies/search-results", method: "post") do |f| %>
+        <%= label_tag(:search, "Search for a movie:") %>
+        <%= text_field_tag(:search) %> <br>
+        <%= submit_tag"Submit", class: "btn waves-effect waves-light" %>
+        <% end %>
+      </center>
+    </div>
+  </div>
+</div>

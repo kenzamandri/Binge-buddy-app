@@ -3,12 +3,53 @@
   <head>
     <title>BingeBuddyApp</title>
     <%= csrf_meta_tags %>
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/css/materialize.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC:700|Raleway+Dots|Raleway:200,300,400" rel="stylesheet">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+
+    <div id="header-wrap"  class="nav">
+      <div id="header1">
+
+
+        <%= link_to image_tag("/assets/logo.jpeg"), home_page_path, id: "right"%>
+       <!-- <img id= "right" src="/assets/logo.jpeg" alt=  ""> -->
+      	<% if  (user_signed_in?) %>
+          <div class="BG">
+          <li><%= link_to '<i class="small material-icons">https</i>'.html_safe, { :action => "destroy", :controller=> "devise/sessions"}, method: :delete %></li>
+          <li><%= link_to '<i class="small material-icons">favorite</i>'.html_safe, movies_path %></li>
+          <li><%= link_to '<i class="small material-icons">search</i>'.html_safe, movie_search_path %></li>
+          <li><%= link_to '<i class="small material-icons">perm_identity</i>'.html_safe, user_path(current_user.id) %></li>
+          <li><%= link_to '<i class="small material-icons">home</i>'.html_safe, home_page_path %></li>
+          </div>
+        <% else %>
+        <li><%= link_to '<i class="small material-icons">home</i>'.html_safe, home_page_path %></li>
+        	<li><%= link_to "Sign In", new_user_session_path %></li>
+        	<li><%= link_to "Sign Up", new_user_registration_path %></li>
+      	<% end %>
+      </div>
+    </div>
+
+
+
+       <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
+  <div class="bodying ">
+
     <%= yield %>
+  <!-- </div> -->
+  <!-- <script src="https://code.jquery.com/jquery-1.12.4.js"></script> -->
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.8/js/materialize.min.js"></script>
   </body>
 </html>

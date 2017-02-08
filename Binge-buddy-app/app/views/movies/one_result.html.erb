@@ -1,0 +1,158 @@
+
+<%@movie_id = @trailer['id']%>
+
+<div class="mock-div5"></div>
+
+
+<div id="above-the-fold" class="flex-container ">
+  <div class="flex-item">
+    <% @title = @trailer['title'] %>
+    <p class="top"><%= @title %></p>
+    <!-- <p class="bottom">A c t o r  /  A c t i v i s t</p> -->
+  </div>
+
+  <!-- video -->
+  <video muted="" id="myvideo" loop="loop" autoplay="autoplay">
+    <!-- Placeholder video to push to GH/Heroku -->
+      <!-- <source src="http://www.starmenusa.com/clients/tony/video/tony.webm" type="video/webm"> -->
+
+    <source src="/assets/BG-vid.mp4"type="video/mp4">
+
+  </video>
+</div> <!-- end above the fold -->
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="pade col s12">
+      <div class="hexagon hexagon2">
+        <div class="hexagon-in1">
+            <%@image = @trailer['poster_240x342']%>
+            <img class= "hexagon-in5" src=<%= @image %> alt="">
+        </div>
+      </div>
+    </div>
+    <div class="col s12">
+      <% if current_user != nil %>
+             <center id ="heart"><%= link_to '<i class="large material-icons">favorite</i>'.html_safe, {action: :create, movie_id: @movie_id, title: @trailer['title'], user_id: current_user.id, posters: @image }, method: :post, remote: true, class: 'savebbttn' %> </center>
+        <%else %>
+          <!-- <i class="medium material-icons" href= "">favorite</i> -->
+          <center id ="heart"><%= link_to '<i class="large material-icons">favorite</i>'.html_safe, new_user_registration_path, class: 'sign' %> </center>
+
+          <!-- <center><a class="sign"href="/users/sign_up"> Sign Up</a> </center> -->
+        <%end %>
+    </div>
+    <div class="col s12">
+
+    <ul class="collapsible" data-collapsible="accordion">
+      <li>
+        <div class="collapsible-header">Movie Details</div>
+        <div class="collapsible-body">
+          <span>
+            Rating: <%= @trailer['rating']%> <br>
+            <% @genre = @trailer['genres']%>
+            Genres: <br>
+            <%@genre.each do |genre|%>
+            * <%= genre['title']%>
+            <%end%>
+            <br>
+            <%@min = @trailer['duration']/60%>
+            Duration: <%= @min/60%>
+            <br>
+          </span>
+        </div>
+      </li>
+
+      <li>
+        <div class="collapsible-header">Overview</div>
+        <div class="collapsible-body">
+          <span>
+              <%= @trailer['overview']%>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Directors</div>
+        <div class="collapsible-body">
+          <span>
+            <% @director = @trailer['directors']%>
+                <%@director.each do |wrt|%>
+                  . <%=wrt['name']%> <br>
+                <%end%>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Writers</div>
+        <div class="collapsible-body">
+          <span>
+            <% @writer = @trailer['writers']%>
+                 <%@writer.each do |wrt|%>
+                . <%=wrt['name']%><br>
+                <%end%>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Cast</div>
+        <div class="collapsible-body">
+          <span>
+            <% @cast = @trailer['cast']%>
+                <%@cast.each do |wrt|%>
+                  . <%=wrt['name']%> AS: <%= wrt['character_name']%><br>
+                <%end%>
+          </span>
+        </div>
+      </li>
+      <li>
+        <div class="collapsible-header">Trailer</div>
+        <div class="collapsible-body">
+          <span>
+            <%@trailer['trailers']['web'].each do |show|%>
+              <%@link = show['embed']%>
+            <center>  <iframe src=<%= @link %> width="700px" height="370px"></iframe> </center>
+
+            <%end%>
+          </span>
+        </div>
+      </li>
+      <li>
+
+        <div class="collapsible-header">Sources</div>
+        <div class="collapsible-body">
+          <span>
+            <p>Free:<br>
+            <%@free = @trailer['free_web_sources']%>
+            <%if @free != nil %>
+              <%@free.each do |free|%>
+                . <%= free['display_name']%>
+                  <% @link = free['link']%>
+                  <a href=<%= @link%>>Watch me!</a> <br>
+              <%end%>
+            <%end%>
+            </p>
+          <p>Purchase: <br>
+                <%@purchase = @trailer['purchase_web_sources']%>
+                <%puts "TRY", @purchase%>
+                <%if @purchase != nil %>
+                  <%@purchase.each do |purchase|%>
+                      <%= purchase['display_name']%>:
+                      <% @link = purchase['link']%>
+                      <%= link_to "Watch me", @link, :target => "_blank" %> <br>
+                  <%end%>
+                <%end%></p>
+              </span>
+            </div>
+          </li>
+        </ul>
+    </div>
+
+
+  </div>
+</div>
