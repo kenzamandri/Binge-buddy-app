@@ -31,9 +31,9 @@
           <li><%= link_to '<i class="small material-icons">home</i>'.html_safe, home_page_path %></li>
           </div>
         <% else %>
-        <li><%= link_to '<i class="small material-icons">home</i>'.html_safe, home_page_path %></li>
         	<li><%= link_to "Sign In", new_user_session_path %></li>
         	<li><%= link_to "Sign Up", new_user_registration_path %></li>
+          <li><%= link_to '<i class="small material-icons">home</i>'.html_safe, home_page_path %></li>
       	<% end %>
       </div>
     </div>
